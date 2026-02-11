@@ -134,7 +134,7 @@
 <body>
 
   <!-- Background Music -->
-  <audio id="bgMusic" loop preload="auto”>
+  <audio id="bgMusic" preload="auto”>
     <source src="love-nwantiti.mp3" type="audio/mpeg">
   </audio>
 
@@ -158,7 +158,11 @@
       const music = document.getElementById('bgMusic');
       msg.style.display = 'block';
       msg.innerHTML = '💖 Yaaay!! Climb bed Panda kitanda . 💖';
-      music.play();
+      music.currentTime = 1;
+      music.volume = 1;
+      music.play().catch(error => {
+    console.log("Playback failed:", error);
+    }); 
       createHearts();
     }
 
